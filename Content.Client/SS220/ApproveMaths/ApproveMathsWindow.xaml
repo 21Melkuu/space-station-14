@@ -1,0 +1,31 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'леха-название-window-title'}"
+            MinSize="250 250"
+            SetSize="400 260">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  Margin="10 10 10 10">
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalAlignment="Center" >
+            <Label Text="{Loc 'Введите правильный ответ'}" />
+        </BoxContainer>
+        <BoxContainer MinHeight="20"></BoxContainer>
+        <BoxContainer Orientation="Horizontal"
+            HorizontalExpand="True">
+            <LineEdit
+                Name="ApproveBar"
+                PlaceHolder="{Loc 'введите ответ'}"
+                HorizontalExpand="True">
+            </LineEdit>
+        </BoxContainer>
+        <BoxContainer MinHeight="20"></BoxContainer>
+        <Button
+                Name="CheckButton"
+                Text="{Loc 'Проверить'}"
+                MaxWidth="120"
+                HorizontalAlignment="Center"
+                VerticalExpand="False">
+        </Button>
+    </BoxContainer>
+</DefaultWindow>   
