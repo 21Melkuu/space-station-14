@@ -3,6 +3,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.Equipment.Components;
+using Content.Shared.SS220.MechClothing;
 using Content.Shared.Whitelist;
 
 namespace Content.Server.Mech.Systems;
@@ -13,6 +14,7 @@ namespace Content.Server.Mech.Systems;
 public sealed class MechEquipmentSystem : EntitySystem
 {
     [Dependency] private readonly MechSystem _mech = default!;
+    [Dependency] private readonly SharedMechClothingSystem _mechClothing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -30,29 +32,49 @@ public sealed class MechEquipmentSystem : EntitySystem
             return;
 
         var mech = args.Target.Value;
-        if (!TryComp<MechComponent>(mech, out var mechComp))
-            return;
 
-        if (mechComp.Broken)
-            return;
-
-        if (args.User == mechComp.PilotSlot.ContainedEntity)
-            return;
-
-        if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
-            return;
-
-        if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
-            return;
-
-        _popup.PopupEntity(Loc.GetString("mech-equipment-begin-install", ("item", uid)), mech);
-
-        var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.InstallDuration, new InsertEquipmentEvent(), uid, target: mech, used: uid)
+        if (TryComp<MechComponent>(mech, out var mechComp))
         {
-            BreakOnMove = true,
-        };
+            if (mechComp.Broken)
+                return;
 
-        _doAfter.TryStartDoAfter(doAfterEventArgs);
+            if (args.User == mechComp.PilotSlot.ContainedEntity)
+                return;
+
+            if (mechComp.EquipmentContainer.ContainedEntities.Count >= mechComp.MaxEquipmentAmount)
+                return;
+
+            if (_whitelistSystem.IsWhitelistFail(mechComp.EquipmentWhitelist, args.Used))
+                return;
+
+            _popup.PopupEntity(Loc.GetString("mech-equipment-begin-install", ("item", uid)), mech);
+
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.InstallDuration, new InsertEquipmentEvent(), uid, target: mech, used: uid)
+            {
+                BreakOnMove = true,
+            };
+
+            _doAfter.TryStartDoAfter(doAfterEventArgs);
+        }
+
+        if(TryComp<MechClothingComponent>(mech, out var mechClothingComp))
+        {
+            if (mechClothingComp.EquipmentContainer.ContainedEntities.Count >= mechClothingComp.MaxEquipmentAmount)
+                return;
+
+            if (_whitelistSystem.IsWhitelistFail(mechClothingComp.EquipmentWhitelist, args.Used))
+                return;
+
+            _popup.PopupEntity(Loc.GetString("mech-equipment-begin-install", ("item", uid)), mech);
+
+            var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.InstallDuration, new InsertEquipmentEvent(), uid, target: mech, used: uid)
+            {
+                BreakOnMove = true,
+            };
+
+            _doAfter.TryStartDoAfter(doAfterEventArgs);
+        }
+
     }
 
     private void OnInsertEquipment(EntityUid uid, MechEquipmentComponent component, InsertEquipmentEvent args)
@@ -61,7 +83,11 @@ public sealed class MechEquipmentSystem : EntitySystem
             return;
 
         _popup.PopupEntity(Loc.GetString("mech-equipment-finish-install", ("item", uid)), args.Args.Target.Value);
-        _mech.InsertEquipment(args.Args.Target.Value, uid);
+        if (TryComp<MechComponent>(args.Args.Target.Value, out var _))
+            _mech.InsertEquipment(args.Args.Target.Value, uid);
+
+        if (TryComp<MechClothingComponent>(args.Args.Target.Value, out var _))
+            _mechClothing.InsertEquipment(args.Args.Target.Value, uid);
 
         args.Handled = true;
     }

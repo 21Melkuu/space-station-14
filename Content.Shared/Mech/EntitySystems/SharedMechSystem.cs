@@ -228,6 +228,7 @@ public abstract class SharedMechSystem : EntitySystem
         UpdateUserInterface(uid, component);
     }
 
+
     /// <summary>
     /// Removes an equipment item from a mech.
     /// </summary>

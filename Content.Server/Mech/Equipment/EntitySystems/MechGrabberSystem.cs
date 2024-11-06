@@ -129,6 +129,9 @@ public sealed class MechGrabberSystem : EntitySystem
             return;
         var target = args.Target;
 
+        if (TryComp<MechComponent>(target, out var _))
+            return;
+
         if (args.Target == args.User || component.DoAfter != null)
             return;
 

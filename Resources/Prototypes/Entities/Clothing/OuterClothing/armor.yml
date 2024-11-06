@@ -284,6 +284,22 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
+  - type: ActionGrant
+    actions:
+    - ActionMechCycleEquipment
+    - ActionMechOpenUI 
+  - type: ItemActionGrant
+    actions:
+    - ActionMechCycleEquipment
+    - ActionMechOpenUI
+  - type: MechClothing
+  - type: UserInterface
+    interfaces:
+      enum.MechUiKey.Key:
+        type: MechBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      mech-equipment-container: !type:Container      
 
 - type: entity
   parent: [ ClothingOuterBaseLarge,  AllowSuitStorageClothing ]
