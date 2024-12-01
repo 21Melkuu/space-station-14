@@ -27,5 +27,8 @@ public sealed class ClientRenameSystem : EntitySystem
           _window = new RenameWindow(new RenameBoundUserInterface(ent.Owner, RenameUiKey.Key));
           _window.OpenCentered();
 
+          if(TryComp<UserInterfaceComponent>(ent.Owner, out var userInterfaceComponent))
+              return;
+
     }
 }
