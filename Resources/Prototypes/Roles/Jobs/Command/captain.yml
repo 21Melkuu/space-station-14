@@ -24,6 +24,13 @@
   accessGroups:
   - AllAccess
   special:
+  - !type:AddComponentSpecial
+    components:
+    - type: RenameOnStart
+    - type: UserInterface
+      interfaces:
+      enum.MechUiKey.Key:
+        type: RenameBoundUserInterface
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial

@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: ItemFun
+  name: very cool item
+  description: Adds fun!
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/access_configurator.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: ActivatableUI
+    key: enum.RenameUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RenameUiKey.Key:
+        type: RenameBoundUserInterface
