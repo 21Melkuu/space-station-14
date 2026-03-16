@@ -1,7 +1,8 @@
 - type: announcementLore
   id: StartAnnounceLore
-  idleRound: 2
+  idleRound: 3
   sendChance: 0.5
+  idleTime: 60
   loreDatasetId:
     department-internal-affairs: AnnouncementLoreInternalAffairs
     department-audit: AnnouncementLoreAudit

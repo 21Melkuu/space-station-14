@@ -19,6 +19,12 @@ public sealed partial class AnnouncementLorePrototype : IPrototype
     [DataField]
     public float SendChance;
 
+    /// <summary>
+    /// Time after roundstart for the announcement to be sent
+    /// </summary>
+    [DataField]
+    public TimeSpan IdleTime;
+
     [DataField]
     public Dictionary<LocId, ProtoId<LocalizedDatasetPrototype>>? LoreDatasetId;
 }
