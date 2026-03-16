@@ -1,3 +1,5 @@
+// © SS220, An EULA/CLA with a hosting restriction, full text: https://raw.githubusercontent.com/SerbiaStrong-220/space-station-14/master/CLA.txt
+
 using Content.Server.Chat.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.SS220.StartAnnouncement;
@@ -31,7 +33,7 @@ public sealed class StartAnnouncementSystem : EntitySystem
     {
         _countLastAnnounce++;
 
-        if (!_proto.TryIndex(_protoLore, out var protoLore))
+        if (!_proto.Resolve(_protoLore, out var protoLore))
             return;
 
         if (_countLastAnnounce < protoLore.IdleRound)
@@ -59,7 +61,7 @@ public sealed class StartAnnouncementSystem : EntitySystem
 
     private void OnPlayAnnounce(PlayStartAnnouncementEvent ev)
     {
-        if (!_proto.TryIndex(_protoLore, out var protoLore))
+        if (!_proto.Resolve(_protoLore, out var protoLore))
             return;
 
         if (protoLore.LoreDatasetId == null || protoLore.LoreDatasetId.Count == 0)
