@@ -50,7 +50,7 @@ public sealed class StartAnnouncementSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_announcementTime == null || !(_timing.CurTime >= _announcementTime))
+        if (_announcementTime == null || _timing.CurTime < _announcementTime)
             return;
 
         _announcementTime = null;
@@ -72,7 +72,7 @@ public sealed class StartAnnouncementSystem : EntitySystem
         if (!protoLore.LoreDatasetId.TryGetValue(department, out var datasetId))
             return;
 
-        if (!_proto.TryIndex(datasetId, out var datasetPrototype))
+        if (!_proto.Resolve(datasetId, out var datasetPrototype))
             return;
 
         var currentMessage = _random.Pick(datasetPrototype.Values);
@@ -84,8 +84,6 @@ public sealed class StartAnnouncementSystem : EntitySystem
     private void OnRoundEnded(RoundEndedEvent ev)
     {
         _announcementTime = null;
-
-        _chat.DispatchGlobalAnnouncement("lalalal");
     }
 }
 
