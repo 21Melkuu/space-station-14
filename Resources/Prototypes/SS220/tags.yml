@@ -20,7 +20,7 @@
   id: MagazineGrenadeArta
 
 - type: Tag
-  id: KRSPowerCell
+  id: PowerCellBlaster
 
 - type: Tag
   id: LaserCarabinePowerCell
@@ -367,3 +367,15 @@
 
 - type: Tag
   id: VoidTeleporationTarget
+
+- type: Tag
+  id: EnvelopeWhitelist
+
+- type: Tag
+  id: RabbitBnuuyWearable
+
+- type: Tag
+  id: AirDefenseTarget
+
+- type: Tag
+  id: PressureProtectionSuit

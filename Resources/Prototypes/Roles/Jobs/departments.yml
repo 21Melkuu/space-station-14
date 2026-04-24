@@ -43,7 +43,7 @@
   description: department-CentralCommand-description
   color: "#18689a" #ss220-chatcolor
   roles:
-  - CentcomOperativeBSO
+  - CentcomOperativeSRT
   - CBURN
   - ERTLeader
   - ERTChaplain
@@ -86,6 +86,7 @@
   - Captain
 #  - IAA #SS220-Law Department
   - Magistrate #SS220-Law Department
+  #- NanoTrasenRepresentative #SS220 TODO NanoTraisen Representative
   - CentralCommandOfficial
   - ChiefEngineer
   - ChiefMedicalOfficer

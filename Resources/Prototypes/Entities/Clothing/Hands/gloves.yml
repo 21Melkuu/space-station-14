@@ -213,12 +213,12 @@
   description: These black nano-enhanced gloves insulate from electricity and provide fire resistance.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/spaceninja.rsi
+    sprite: SS220/Clothing/Hands/Gloves/spaceninja.rsi # SS220 Ninja Resprite
     layers:
     - state: icon
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/spaceninja.rsi
+    sprite: SS220/Clothing/Hands/Gloves/spaceninja.rsi # SS220 Ninja Resprite
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -236,13 +236,14 @@
   - type: ToggleClothing
     action: ActionToggleNinjaGloves
     disableOnUnequip: true
-# Corvax-HiddenDesc-Start
+# SS220-hidden-desc-begin
   - type: HiddenDescription
     entries:
-    - label: corvax-hidden-desc-ThievingGloves-thief
-      whitelistMindRoles:
-      - ThiefRole
-# Corvax-HiddenDesc-End
+      NinjaKnowledge: [ corvax-hidden-desc-ThievingGloves-thief ]
+    nameEntries:
+    - [NinjaKnowledge, null]
+    hiddenName: ent-ClothingHandsBase
+# SS220-hidden-desc-end
   - type: NinjaGloves
     abilities:
     - components:
@@ -391,17 +392,16 @@
   - type: Thieving
     stripTimeReduction: 1.5
     stealthy: true
-# Corvax-HiddenDesc-Start
+# SS220-hidden-desc-begin
   - type: HiddenDescription
     entries:
-    - label: corvax-hidden-desc-ThievingGloves-syndicate
-      whitelistMindRoles:
-      - TraitorRole
-      - NukeOperative
-    - label: corvax-hidden-desc-ThievingGloves-thief
-      whitelistMindRoles:
-      - ThiefRole
-# Corvax-HiddenDesc-End
+      SyndicateAgentKnowledge: [ corvax-hidden-desc-ThievingGloves-syndicate ]
+      ThiefKnowledge: [ corvax-hidden-desc-ThievingGloves-thief ]
+    nameEntries:
+    - [SyndicateAgentKnowledge, null]
+    - [ThiefKnowledge, null]
+    hiddenName: ent-ClothingHandsGlovesColorBlack
+# SS220-hidden-desc-end
 
 - type: entity
   parent: ClothingHandsGlovesColorWhite

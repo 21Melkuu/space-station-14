@@ -80,14 +80,11 @@
       cell_slot: !type:ContainerSlot
   - type: HiddenDescription
     entries:
-    - label: hidden-desc-toy-armour-syndicate
-      whitelistMindRoles:
-      - TraitorRole
-      - NukeOperative
-    - label: hidden-desc-toy-armour-clown
-      jobRequired:
-        - Clown
-        - Mime
+      SyndicateAgentKnowledge: [ hidden-desc-toy-armour-syndicate ]
+      ServiceActorKnowledge: [ hidden-desc-toy-armour-clown ]
+    nameEntries:
+    - [SyndicateAgentKnowledge, null]
+    - [ServiceActorKnowledge, null]
 
 #syndie hardsuits helmets
 - type: entity
@@ -167,7 +164,7 @@
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
-    sprite: Clothing/Head/Helmets/spaceninja.rsi
+    sprite: SS220/Clothing/Head/Helmets/spaceninja.rsi
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
@@ -176,4 +173,4 @@
     - HeadTop
     - HeadSide
   - type: Sprite
-    sprite: Clothing/Head/Helmets/spaceninja.rsi
+    sprite: SS220/Clothing/Head/Helmets/spaceninja.rsi

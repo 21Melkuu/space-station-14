@@ -174,13 +174,13 @@ ent-AirlockGlassCentcommLocked = { ent-AirlockCommandGlass }
     .desc = { ent-AirlockCommandGlass.desc }
     .suffix = ЦК, Закрыто
 
-ent-AirlockCentcommLockedBSO = { ent-AirlockCommand }
+ent-AirlockCentcommLockedSRT = { ent-AirlockCommand }
     .desc = { ent-AirlockCommand.desc }
-    .suffix = ЦК, Закрыто, Оперативник "Синий Щит"
+    .suffix = ЦК, Закрыто, Оперативник ГСН
 
-ent-AirlockGlassCentcommLockedBlueShieldOperative = { ent-AirlockCommandGlass }
+ent-AirlockGlassCentcommLockedSRTOperative = { ent-AirlockCommandGlass }
     .desc = { ent-AirlockCommandGlass.desc }
-    .suffix = ЦК, Закрыто, Оперативник "Синий Щит"
+    .suffix = ЦК, Закрыто, Оперативник ГСН
 
 ent-AirlockCentcommLockedERT = { ent-AirlockCommand }
     .desc = { ent-AirlockCommand.desc }
@@ -206,9 +206,9 @@ ent-AirlockGlassCentcommLockedDeathSquad = { ent-AirlockCommandGlass }
     .desc = { ent-AirlockCommandGlass.desc }
     .suffix = ЦК, Закрыто, Эскадрон Смерти
 
-ent-HighSecCentcommLockedBSO = { ent-HighSecDoor }
+ent-HighSecCentcommLockedSRT = { ent-HighSecDoor }
     .desc = { ent-HighSecDoor.desc }
-    .suffix = ЦК, Закрыто, Оперативник "Синий Щит"
+    .suffix = ЦК, Закрыто, Оперативник ГСН
 
 ent-HighSecCentcommLockedERT = { ent-HighSecDoor }
     .desc = { ent-HighSecDoor.desc }
@@ -281,3 +281,15 @@ ent-AirlockShuttleUsspLocked = { ent-AirlockShuttleUssp }
 ent-AirlockNoPassenger = { ent-AirlockGlass }
     .desc = { ent-AirlockMaint.desc }
     .suffix = Без пассажиров, Закрыто
+
+ent-AirlockNanoTrasenRepresentativeGlassLocked = { ent-AirlockCommandGlass }
+    .desc = { ent-AirlockCommandGlass.desc }
+    .suffix = Представитель НТ, Закрыто
+
+ent-AirlockNanoTrasenRepresentativeLocked = { ent-AirlockCommand }
+    .desc = { ent-AirlockCommand.desc }
+    .suffix = Представитель НТ, Закрыто
+
+ent-AirlockMaintNanoTrasenRepresentativeLocked = { ent-AirlockMaintCommandLocked }
+    .desc = { ent-AirlockMaintCommandLocked.desc }
+    .suffix = Представитель НТ, Закрыто
