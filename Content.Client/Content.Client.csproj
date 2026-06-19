@@ -21,6 +21,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SS220\Questionnaire\QuestionnaireWindow.xaml.cs">
+      <DependentUpon>QuestionnaireWindow.xaml.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
 </Project>

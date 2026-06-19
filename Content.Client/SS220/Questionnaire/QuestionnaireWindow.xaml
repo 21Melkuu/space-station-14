@@ -1,0 +1,21 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="Анкета"
+                      MinSize="800 600">
+    <ScrollContainer>
+        <BoxContainer Name="QuestionsContainer"
+                      Orientation="Vertical"
+                      SeparationOverride="10"
+                      Margin="5" />
+    </ScrollContainer>
+    <BoxContainer Orientation="Vertical" SeparationOverride="5" Margin="5">
+        <Label Name="ErrorLabel"
+               FontColorOverride="Red"
+               Visible="False"
+               Text="Пожалуйста, ответьте на все вопросы."
+               HorizontalAlignment="Center" />
+        <Button Name="SubmitButton"
+                Text="Отправить"
+                HorizontalExpand="True" />
+    </BoxContainer>
+</controls:FancyWindow>
